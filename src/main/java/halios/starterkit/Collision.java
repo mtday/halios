@@ -1,7 +1,7 @@
-package mtday.halios.starterkit;
+package halios.starterkit;
 
-import mtday.halios.model.Entity;
-import mtday.halios.model.Position;
+import halios.model.Entity;
+import halios.model.Position;
 
 public class Collision {
     /**

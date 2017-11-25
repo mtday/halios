@@ -1,6 +1,6 @@
-package mtday.halios.model.move;
+package halios.model.move;
 
-import mtday.halios.model.Ship;
+import halios.model.Ship;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -27,13 +27,17 @@ public abstract class Move {
         return ship;
     }
 
+    @Nonnull
+    protected ToStringBuilder toString(@Nonnull final ToStringBuilder str) {
+        str.append("type", getType());
+        str.append("ship", getShip());
+        return str;
+    }
+
     @Override
     @Nonnull
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
-                .append("type", getType())
-                .append("ship", getShip())
-                .build();
+        return toString(new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)).build();
     }
 
     @Nonnull

@@ -1,7 +1,9 @@
-package mtday.halios.model.move;
+package halios.model.move;
 
-import mtday.halios.model.Planet;
-import mtday.halios.model.Ship;
+import static halios.model.move.MoveType.DOCK;
+
+import halios.model.Planet;
+import halios.model.Ship;
 
 import javax.annotation.Nonnull;
 
@@ -10,7 +12,7 @@ public class DockMove extends Move {
     private final Planet planet;
 
     public DockMove(@Nonnull final Ship ship, @Nonnull final Planet planet) {
-        super(MoveType.DOCK, ship);
+        super(DOCK, ship);
         this.planet = planet;
     }
 
@@ -22,6 +24,6 @@ public class DockMove extends Move {
     @Override
     @Nonnull
     public String serialize() {
-        return String.format("d %d %d", getShip().getId(), getPlanet().getId());
+        return String.format("d %d %d ", getShip().getId(), getPlanet().getId());
     }
 }

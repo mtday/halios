@@ -60,7 +60,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>mtday.halios.Halios</mainClass>
+                            <mainClass>halios.Halios</mainClass>
                         </manifest>
                     </archive>
                     <finalName>${project.artifactId}</finalName>

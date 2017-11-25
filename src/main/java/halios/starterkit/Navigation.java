@@ -1,17 +1,21 @@
-package mtday.halios.starterkit;
+package halios.starterkit;
 
-import mtday.halios.config.Config;
-import mtday.halios.model.Entity;
-import mtday.halios.model.Position;
-import mtday.halios.model.Ship;
-import mtday.halios.model.move.ThrustMove;
+import halios.config.Config;
+import halios.model.Entity;
+import halios.model.Game;
+import halios.model.Position;
+import halios.model.Ship;
+import halios.model.move.ThrustMove;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.annotation.Nonnull;
 
 public class Navigation {
+    private static final Logger LOGGER = LoggerFactory.getLogger(Navigation.class);
 
     public static ThrustMove navigateShipToDock(
-            @Nonnull final GameMap gameMap,
+            @Nonnull final Game gameMap,
             @Nonnull final Ship ship,
             @Nonnull final Entity dockTarget,
             final int maxThrust) {
@@ -25,7 +29,7 @@ public class Navigation {
     }
 
     public static ThrustMove navigateShipTowardsTarget(
-            @Nonnull final GameMap gameMap,
+            @Nonnull final Game gameMap,
             @Nonnull final Ship ship,
             @Nonnull final Position targetPos,
             final int maxThrust,
@@ -33,6 +37,7 @@ public class Navigation {
             final int maxCorrections,
             final double angularStepRad) {
         if (maxCorrections <= 0) {
+            LOGGER.error("Hit max corrections!");
             return null;
         }
 

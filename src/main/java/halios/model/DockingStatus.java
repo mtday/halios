@@ -1,4 +1,4 @@
-package mtday.halios.model;
+package halios.model;
 
 public enum DockingStatus {
     UNDOCKED,

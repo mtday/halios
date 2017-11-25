@@ -1,6 +1,6 @@
-package mtday.halios.model;
+package halios.model;
 
-import mtday.halios.config.Config;
+import halios.config.Config;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
@@ -13,8 +13,20 @@ public class Position extends Point2D.Double {
 
     private static final double TWO_PI = 2 * Math.PI;
 
+    public Position() {
+        super();
+    }
+
     public Position(final double x, final double y) {
         super(x, y);
+    }
+
+    public void setX(final double x) {
+        this.x = x;
+    }
+
+    public void setY(final double y) {
+        this.y = y;
     }
 
     public static int toDegrees(final double radians) {
@@ -42,12 +54,16 @@ public class Position extends Point2D.Double {
         return new Position(x, y);
     }
 
+    @Nonnull
+    protected ToStringBuilder toString(@Nonnull final ToStringBuilder str) {
+        str.append("x", getX());
+        str.append("y", getY());
+        return str;
+    }
+
     @Override
     @Nonnull
     public String toString() {
-        return new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)
-                .append("x", getX())
-                .append("y", getY())
-                .build();
+        return toString(new ToStringBuilder(this, ToStringStyle.SHORT_PREFIX_STYLE)).build();
     }
 }

@@ -1,6 +1,7 @@
-package mtday.halios.model.move;
+package halios.model.move;
 
 public enum MoveType {
+    NOOP,
     THRUST,
     DOCK,
     UNDOCK

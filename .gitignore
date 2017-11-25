@@ -1,0 +1,6 @@
+
+*.log
+replay*
+dependency-reduced-pom.xml
+target
+
